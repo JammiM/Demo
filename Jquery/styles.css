@@ -9,3 +9,6 @@
 .comments p:nth-child(odd) {
  background: gainsboro;
 }
+
+.comment-input span:hover {
+cursor: pointer; }

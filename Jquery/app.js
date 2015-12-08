@@ -1,19 +1,30 @@
 var main = function () {
  "use strict";
+
  $(".comment-input button").on("click", function (event) {
+	  var $new_comment;
 
-	 var $new_comment = $("<p>"),
-	 comment_text = $(".comment-input input").val();
-	 $new_comment.text(comment_text);
+ if ($(".comment-input input").val() !== "") {
+	 var $new_comment = $("<p>").text($(".comment-input input").val());
 	 $(".comments").append($new_comment);
+	 $(".comment-input input").val("");
+ 	}//if
 
- });
-};
+ });//onClick
 
-// or
-// var $new_comment = $("<p>").text($(".comment-input input").val());
+$(".comment-input input").on("keypress", function (event) {
+ console.log("this is the keyCode " + event.keyCode);
+});
 
 
+
+
+
+
+
+
+
+};//main
 
 
 $(document).ready(main);
