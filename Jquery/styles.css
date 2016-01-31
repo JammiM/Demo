@@ -10,5 +10,5 @@
  background: gainsboro;
 }
 
-.comment-input span:hover {
+.comment-input button {
 cursor: pointer; }
