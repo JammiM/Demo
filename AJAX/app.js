@@ -1,10 +1,22 @@
 var main = function () {
- "use strict";
- // getJSON even parses the JSON for us, so we don't need to
- // call JSON.parse
- $.getJSON("cards/aceOfSpades.json", function (card) {
- // print the card to the console
- console.log(card);
- });
-};
+  "use strict";
+
+//  console.log("Hello W");
+
+  $.getJSON("cards/aceOfSpades.json", function (card) {
+
+
+    var $cardParagraph = $("<p>");
+
+    $cardParagraph.text(card.rank + " of " + card.suit);
+
+    $("main").append($cardParagraph);
+
+
+    console.log(card);
+
+  });//getJSON
+
+};//main
+
 $(document).ready(main);
