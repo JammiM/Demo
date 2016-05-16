@@ -1,27 +1,34 @@
+/*  This program retrieves JSON data from the flickr API
+
+*/
+
 var main = function () {
 
-  "use strict";
+    "use strict";
 
-  var url = "http://api.flickr.com/services/feeds/photos_public.gne?tags=dogs&format=json&jsoncallback=?";
+    var url = "http://api.flickr.com/services/feeds/photos_public.gne?tags=dogs&format=json&jsoncallback=?";
 
     $.getJSON(url, function (flickrResponse) {
 
-      flickrResponse.items.forEach(function (photo) {
+        flickrResponse.items.forEach(function (photo) {
 
-        //Creates el
-        var $img = $("<img>");
+            //Creates el
+            var $img = $("<img>").hide();
 
-        //Sets it's attr
-        $img.attr("src", photo.media.m);
+            //Sets it's attr
+            $img.attr("src", photo.media.m);
 
-        //Adds it to the main tag
-        $("main .photos").append($img);
+            //Adds it to the main tag
+            $("main .photos").append($img);
 
-        //console.log(photo.media.m);
-      });
+            $img.fadeIn(1000);
 
-     console.log(flickrResponse);
-   });
+
+            //console.log(photo.media.m);
+        });
+
+        console.log(flickrResponse);
+    });
 
 
 };
