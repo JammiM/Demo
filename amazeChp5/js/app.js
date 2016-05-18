@@ -59,4 +59,9 @@ var main = function () {
     $(".tabs a:first-child span").trigger("click");
 };
 
-$(document).ready(main);
+//JSON data is now called before the main function
+$(document).ready(function() {
+  $.getJSON("to-dos.json", function(toDoObjects) {
+    main(toDoObjects);
+  });
+});
