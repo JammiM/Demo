@@ -1,10 +1,19 @@
-var main = function () {
+var main = function (toDoObjects) {
+   "use strict";
+/*
     var toDos = ["Get groceries",
                  "Make up some new ToDos",
                  "Prep for Monday's class",
                  "Answer emails",
                  "Take Gracie to the park",
                  "Finish writing this book"];
+*/
+    var toDos = toDoObjects.map(function (toDo) {
+              // we'll just return the description
+              // of this toDoObject
+              return toDo.description;
+              });
+
 
     $(".tabs a span").toArray().forEach(function (element) {
         var $element = $(element);
@@ -61,7 +70,11 @@ var main = function () {
 
 //JSON data is now called before the main function
 $(document).ready(function() {
-  $.getJSON("to-dos.json", function(toDoObjects) {
+
+  $.getJSON("js/todos.json", function(toDoObjects) {
+
     main(toDoObjects);
+
   });
+
 });
