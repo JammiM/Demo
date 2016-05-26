@@ -47,6 +47,7 @@ var main = function (toDoObjects) {
                 // THIS IS THE TAGS TAB CODE
                 console.log("the tags tab was clicked!");
 
+                //Temp object to hold tags
                 var organizedByTag = [
                                          {
                                          "name": "shopping",
@@ -75,9 +76,26 @@ var main = function (toDoObjects) {
                                          }
                                       ];
 
+                organizedByTag.forEach(function (tag) {
 
-                } else if ($element.parent().is(":nth-child(4)")) {
+                  /* Iterates over the object and for each object add a h3 heading
+                  and a ul for the list of tags */
+                  var $tagName = $("<h3>").text(tag.name), $content = $("<ul>");
 
+                  /* forEach item in the array toDos in organizedByTag
+                  create a li item that is added to the ul element $content */
+                  tag.toDos.forEach(function (description) {
+                    var $li = $("<li>").text(description);
+                    $content.append($li);
+                  });
+
+                  //Append the data to the content in the DOM
+                  $("main .content").append($tagName);
+                  $("main .content").append($content);
+
+                });//forEach
+
+              } else if ($element.parent().is(":nth-child(4)")) {
 
                 // input a new to-do
                 $input = $("<input>"),
@@ -92,7 +110,7 @@ var main = function (toDoObjects) {
 
                 $content = $("<div>").append($input, $button);
 
-              }// (4)nth-child
+              } // (4)nth-child
 
             $("main .content").append($content);
 
