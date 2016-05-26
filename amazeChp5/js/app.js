@@ -43,6 +43,13 @@ var main = function (toDoObjects) {
                     $content.append($("<li>").text(todo));
                 });
             } else if ($element.parent().is(":nth-child(3)")) {
+
+                // THIS IS THE TAGS TAB CODE
+                console.log("the tags tab was clicked!");
+
+                } else if ($element.parent().is(":nth-child(4)")) {
+
+
                 // input a new to-do
                 $input = $("<input>"),
                 $button = $("<button>").text("+");
@@ -54,10 +61,9 @@ var main = function (toDoObjects) {
                     }
                 });
 
-                $content = $("<div>").append($input).append($button);
-               /* Alternatively append() allows multiple arguments so the above
-                can be done with $content = $("<div>").append($input, $button); */
-            }
+                $content = $("<div>").append($input, $button);
+
+              }// (4)nth-child
 
             $("main .content").append($content);
 
